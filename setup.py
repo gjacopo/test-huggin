@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+setup file.
 """
 
 import io, sys, os
@@ -18,7 +19,7 @@ VERSION             = None
 REQUIRES_PYTHON = '>=3.6.0'
 
 REQUIRED = [
-    'numpy', 'pandas', 'transformers''
+    'numpy', 'pandas', 'transformers'
 ]
 
 EXTRAS = {
@@ -70,11 +71,10 @@ setup(
     include_package_data =              True,
     license =                           'EUPL',
     classifiers =                       [
-                                        'Programming Language :: Python',
-                                        'Programming Language :: Python :: 3',
-                                        'Programming Language :: Python :: 3.6',
-                                        'Topic :: Database'
-                                        ],
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Topic :: Database'
+        ],
     cmdclass =                          {
                                         'upload': UploadCommand,
                                         },
