@@ -4,7 +4,7 @@
 A wrapper for sentiment analysis to KNIME
 """
 
-from .pipes import Sentiment
+from test_huggin.pipes import Sentiment
 
 class SentimentWrapper(Sentiment):
     def __call__(self, arg, **kwargs):
