@@ -4,7 +4,7 @@
 A wrapper for entity recognition to KNIME
 """
 
-from .pipes import NER
+from test_huggin.pipes import NER
 
 class NERWraper(NER):
     def __call__(self, arg, **kwargs):
