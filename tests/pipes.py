@@ -47,8 +47,8 @@ class PipelineTestCase(unittest.TestCase):
         ner = pipes.NER(); 
         self.assertEqual(ner.pipe, 'ner')
         res = ner(self.text)
-        self.assertNotEqual(set(res.loc[res.entity=='I-LOC','word'].values).intersection(locations), set())
-         self.assertNotEqual(set(res.loc[res.entity=='I-PER','word'].values).intersection(persons), set())
+        self.assertNotEqual(set(res.loc[res.entity_group=='LOC','word'].values).intersection(locations), set())
+        self.assertNotEqual(set(res.loc[res.entity_group=='PER','word'].values).intersection(persons), set())
 
     def test2_qa():
         qa = pipes.QA()
