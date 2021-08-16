@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - defaults
+  - conda-forge/label/broken
+dependencies:
+  - ipython
+  - pip
+  - pip:
+    - -r file:requirements.txt
