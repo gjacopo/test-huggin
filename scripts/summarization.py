@@ -4,7 +4,7 @@
 A wrapper for summarization to be launched through KNIME
 """
 
-from .pipes import Summary
+from test_huggin.pipes import Summary
 
 class SummaryWrapper(Summary):
     def __call__(self, arg, **kwargs):
