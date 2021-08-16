@@ -4,7 +4,7 @@
 A wrapper for question_answering to KNIME
 """
 
-from .pipes import QA
+from test_huggin.pipes import QA
 
 class QAWrapper(QA):
     def __call__(self, arg, **kwargs):
