@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Documentation of the module
+"""Base pipelines.
 
-The module itself should be documented:
-    * overall purpose
-    * useful links
-    * ...
+A generic base NLP pipeline `PipelineWrapper` class is defined. It currently implements (wraps) the NLP pipeline
+of the `transformers` module. 
+
+Basic NLP functionalities are derived from this class and served transparently to users. 
 """
 
 import os, sys # if needed...
@@ -24,7 +24,7 @@ except:
     raise IOError('pandas module not available')
 
 
-class BasePipeline():
+class PipelineWrapper():
     """A generic basic class that implements whatever pipeline, as listed in the
     PIPELINES variable.
     """
@@ -73,20 +73,20 @@ class BasePipeline():
 
 #note: we could have introduced configurable abstract classes
 
-class Sentiment(BasePipeline):
+class Sentiment(PipelineWrapper):
     PIPE = 'sentiment-analysis'
 
-class Summary(BasePipeline):
+class Summary(PipelineWrapper):
     PIPE = 'summarization'
 
-class QA(BasePipeline):
+class QA(PipelineWrapper):
     PIPE = 'question-answering'
 
-class NER(BasePipeline):
+class NER(PipelineWrapper):
     PIPE = 'ner'
 
 # and also...
-class Translation(BasePipeline):
+class Translation(PipelineWrapper):
     PIPE = 'translation'
     def __init__(self, *args, **kwargs):
         xx, yy = args
