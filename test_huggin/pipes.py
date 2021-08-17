@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Base pipelines.
+"""Base documentation
 
-A generic base NLP pipeline `PipelineWrapper` class is defined. It currently implements (wraps) the NLP pipeline
-of the `transformers` module. 
-
-Basic NLP functionalities are derived from this class and served transparently to users. 
+Document your module:
+* scope / purpose
+* usage and examples
+* useful links
 """
 
 import os, sys # if needed...
@@ -25,8 +25,10 @@ except:
 
 
 class PipelineWrapper():
-    """A generic basic class that implements whatever pipeline, as listed in the
-    PIPELINES variable.
+    """A generic base pipeline `PipelineWrapper` clas that implements whatever NLP pipeline.
+     It currently implements (wraps) the NLP pipeline of the `transformers` module. 
+    
+    Pipeline is defined through the `PIPE` variable.
     """
 
     PIPE = None
