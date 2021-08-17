@@ -28,35 +28,35 @@ class PipelineTestCase(unittest.TestCase):
         self.question = "What was the tax rate payed by firms in Luxembourg?"
         self.sentence = "What a great Summer in Luxembourg!"
 
-    def test0_BasePipeline():
-        P = pipes.BasePipeline()
+    def test0_PipelineWrapper():
+        P = pipes.PipelineWrapper()
         self.assertEqual(P.pipe, None)
-        P = BasePipeline(self.dummy)
+        P = pipes.PipelineWrapper(self.dummy)
         self.assertEqual(P.pipe, self.dummy)
         with self.assertRaises(IOError):
             P(self.text)
 
-    def test1_sentiment():
+    def test1_Sentiment():
         sent = pipes.Sentiment(); 
         self.assertEqual(sent.pipe, 'sentiment-analysis')
         res = sent(self.sentence)
         self.assertEqual(res.label[0], 'POSITIVE')
         self.assertGreater(res.score[0], 0.5)
 
-    def test1_ner():
+    def test1_NER():
         ner = pipes.NER(); 
         self.assertEqual(ner.pipe, 'ner')
         res = ner(self.text)
         self.assertNotEqual(set(res.loc[res.entity_group=='LOC','word'].values).intersection(locations), set())
         self.assertNotEqual(set(res.loc[res.entity_group=='PER','word'].values).intersection(persons), set())
 
-    def test2_qa():
+    def test2_QA():
         qa = pipes.QA()
         self.assertEqual(qa.pipe, 'question-answering')
         res = qa(question = self.question, context = self.text)
         self.assertNotEqual(res.answer[0] = 'less than 1 percent tax')
 
-    def test3_summary():
+    def test3_Summary():
         summary = pipes.Summary
         self.assertEqual(summary.pipe, 'summarization')
         res = summary('text')
