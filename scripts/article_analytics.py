@@ -2,7 +2,9 @@
 # note the line above is useful to launch the script from the command line, e.g. using
 # python -m ...
 """
-Document the script
+Document the script, for instance:
+Parse in the KNIME output an article table from the main fields of an online article parsed through
+the KNIME input.
 """
 
 from six import string_types
@@ -18,6 +20,23 @@ URL_SITES = ['http', 'https', 'ftp']
 DEF_FIELDS = [ 'authors', 'publish_date', 'text','top_image', 'keywords', 'summary']
 
 def dummy(url, fields = None):
+    """Create an article table from the main fields of an online article parsed through its URL. 
+    
+    >>> table = dummy(url, fields = None)
+    
+    Arguments
+    ---------
+    url : str
+        URL of the online article; should start with any string from `URL_SITES`.
+    fields : list[str]
+        fields of the article to parse in the output table; when `None`, set to the default
+        list of fields: `DEF_FIELDS`.
+        
+    Returns
+    -------
+    table: pd.DataFrame
+        A data frame with the `fields` of the article as columns.
+    """
     try: # that... or use typing of functions enabled by Python 3: -->
         assert(isinstance(url,string_types))
     except AssertionError:
