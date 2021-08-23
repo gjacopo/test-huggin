@@ -16,7 +16,7 @@ try:
 except ImportError:
     raise ImportError ('package newspaper not available')
 
-URL_SITES = ['http', 'https', 'ftp']
+DEF_URLS = ['http', 'https', 'ftp']
 DEF_FIELDS = [ 'authors', 'publish_date', 'text','top_image', 'keywords', 'summary']
 
 def dummy(url, fields = None):
@@ -27,7 +27,7 @@ def dummy(url, fields = None):
     Arguments
     ---------
     url : str
-        URL of the online article; should start with any string from `URL_SITES`.
+        URL of the online article; should start with any string from `DEF_URLS`.
     fields : list[str]
         fields of the article to parse in the output table; when `None`, set to the default
         list of fields: `DEF_FIELDS`.
@@ -42,7 +42,7 @@ def dummy(url, fields = None):
     except AssertionError:
         raise TypeError('wrong type for URL')
     try: # catching other errors... or not
-        assert(any([isinstance(url.startswith(pre)) for pre in URL_SITES))
+        assert(any([isinstance(url.startswith(pre)) for pre in DEF_URLS))
     except AssertionError:
         raise IOError('URL type not recognised')
     try:
