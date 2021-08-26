@@ -4,4 +4,4 @@
 document...
 """
 
-__all__ = ["pipes"]
+__all__ = ["pipes", "nodes"]

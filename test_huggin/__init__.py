@@ -4,4 +4,6 @@
 
 """
 
-__all__ = ["pipes", "summarization", "question_answering", "sentiment", "ner"]
+__all__ = ["pipes", "nodes"]
+
+FRAMEWORK = "transformers"

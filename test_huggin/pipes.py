@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Documentation of the module
+"""Pipelines of NLP functions.
 
-The module itself should be documented:
-    * overall purpose
-    * useful links
-    * ...
+Framework currently used is transformers.
 """
 
 import os, sys # if needed...

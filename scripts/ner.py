@@ -1,20 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-A wrapper for entity recognition to KNIME
+A script for entity recognition in KNIME
 """
 
-from .pipes import NER
+from test_huggin.nodes import KNER
 
-class NERWraper(NER):
-    def __call__(self, arg, **kwargs):
-        try:
-            arg = arg['text'][0]
-        except:
-            pass
-        args = (arg,)
-        return super(NER,self).__call__(*args, **kwargs)
-
-if __name__ == "__main__":
-    ner = NERWraper()
-    output_table_1 = ner(input_table_1)
+ner = KNER()
+output_table_1 = ner(input_table_1)
