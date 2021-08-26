@@ -4,6 +4,6 @@
 
 """
 
-__all__ = ["pipes", "nodes"]
+__all__ = ["pipes"] # "nodes" excluded from the distri
 
 FRAMEWORK = "transformers"
