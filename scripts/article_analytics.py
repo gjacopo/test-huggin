@@ -11,6 +11,11 @@ from six import string_types
 from collections.abc import Sequence
 import pandas as pd
 
+try: # set to run with KNIME
+    __name__ # assert('__name__' in locals() or '__name__' in globals())
+except NameError: # AssertionError:
+    __name__ = "__main__"
+
 try:
     from newspaper import Article
 except ImportError:
