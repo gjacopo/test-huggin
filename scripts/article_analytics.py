@@ -11,9 +11,9 @@ from six import string_types
 from collections.abc import Sequence
 import pandas as pd
 
-try: # set to run with KNIME
-    __name__ # assert('__name__' in locals() or '__name__' in globals())
-except NameError: # AssertionError:
+try: 
+    __name__ 
+except NameError:
     __name__ = "__main__"
 
 try:
@@ -24,10 +24,10 @@ except ImportError:
 DEF_URLS = ['http', 'https', 'ftp']
 DEF_FIELDS = [ 'authors', 'publish_date', 'text','top_image', 'keywords', 'summary']
 
-def dummy(url, fields = None):
+def art_to_table(url, fields = None):
     """Create an article table from the main fields of an online article parsed through its URL. 
     
-    >>> table = dummy(url, fields = None)
+    >>> table = art_to_table(url, fields = None)
     
     Arguments
     ---------
@@ -71,11 +71,10 @@ def dummy(url, fields = None):
     d = {}
     for f in fields:
         try:
-            d.update({f: getattr(article, f)})
+            d.update({f: [getattr(article, f)}])
         except:
             raise IOError('Unknown field %s of article' % f)
     return pd.DataFrame(d)
 
 if __name__ == "__main__":
-    # please check why https://stackoverflow.com/questions/419163/what-does-if-name-main-do
-    output_table_1 = dummy(input_table_1['text'][0])
+    output_table_1 = art_to_table(input_table_1['text'][0])
